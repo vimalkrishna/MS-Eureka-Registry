@@ -3,6 +3,12 @@ This Microservice uses Eureka from Netflix OSS, helps discover Micro Services au
 
 ## Getting Started
 This Microservice is a simple Spring-Boot application with a single configuration file in form of application.properties
+Discovery system makes application production standard, by removing hard coded URLS using Netflix library called Eureka, (not Zookeeper).
+IP address must have to be on Cloud based solution in form of Microservice. Load balancing is achieved. Service discovery is done by a service registry container that has reference to our Microservices. Web front-end calls the service registry to find where Position tracker currently. 
+It is the single point of failure.
+
+It will replicate data among multiple nodes. @EnableEurekaServer does the work through configuration in properties files. Currently only one instance.
+We register Position tracker as client with Eureka server. Client finds Eureka Server through properties file. Spring boot does rest. It automatically detects the Position tracking Microservice and assigns IP address and in case of failover tries to reconnect and remove from registry.
 
 ### Prerequisites
 
